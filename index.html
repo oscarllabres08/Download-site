@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B5ED7" />
+    <title>Aquabeast WRS — Download App</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <header class="header">
+          <div class="logo" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img" focusable="false">
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#2EA8FF" />
+                  <stop offset="1" stop-color="#0B5ED7" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M32 4c8.5 9.2 18 20.7 18 32.5C50 47.7 42.4 56 32 56S14 47.7 14 36.5C14 24.7 23.5 13.2 32 4Z"
+                fill="url(#g)"
+              />
+              <path
+                d="M41.8 38.8c-2.2 5.9-7.5 10-13.8 10-6.7 0-12.3-4.6-14.1-10.9"
+                fill="none"
+                stroke="rgba(255,255,255,0.75)"
+                stroke-width="3.2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="title">Aquabeast WRS</h1>
+            <p class="subtitle">Download the customer app (Android)</p>
+          </div>
+        </header>
+
+        <div class="actions">
+          <!-- Host the APK under download-site/downloads/ then deploy. Direct URL = this href (paste in browser → download). -->
+          <a class="btn" href="/downloads/aquabeast-customer.apk" download>
+            Download customer app (.apk)
+          </a>
+        </div>
+
+        <p class="noteSmall" style="margin-top: 14px; text-align: center">
+          <strong>Direct link (share / paste):</strong><br />
+          <code class="directLink">…your-domain…/downloads/aquabeast-customer.apk</code>
+        </p>
+
+        <div class="note">
+          <h2 class="noteTitle">Before installing</h2>
+          <ol class="noteList">
+            <li>Tap <b>Download App</b>.</li>
+            <li>Open the downloaded file.</li>
+            <li>If prompted, enable <b>Install unknown apps</b> for your browser.</li>
+          </ol>
+          <p class="noteSmall">
+            If your phone blocks the install, go to Settings → Security/Privacy → Install unknown apps.
+          </p>
+        </div>
+
+        <footer class="footer">
+          <p class="footerText">© <span id="y"></span> Aquabeast WRS</p>
+        </footer>
+      </section>
+    </main>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
