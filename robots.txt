@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Explicitly allow social scrapers (some providers show 403 warnings without this)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
