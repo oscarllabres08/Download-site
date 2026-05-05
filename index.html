@@ -96,8 +96,8 @@
       document.getElementById('y').textContent = new Date().getFullYear();
     </script>
 
-    <!-- QR generator (client-side). -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <!-- QR generator (client-side). npm `qrcode` no longer ships build/qrcode.min.js on the CDN — use qrcodejs instead. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" crossorigin="anonymous"></script>
     <script>
       (function () {
         var base = "https://aquabeast-download.vercel.app";
@@ -113,21 +113,17 @@
         }
 
         var el = document.getElementById("qr");
-        if (!el || !window.QRCode) return;
-        window.QRCode.toCanvas(
-          url,
-          {
-            width: 220,
-            margin: 1,
-            color: { dark: "#0B1B3A", light: "#FFFFFF" },
-          },
-          function (err, canvas) {
-            if (err) return;
-            canvas.setAttribute("aria-hidden", "true");
-            el.innerHTML = "";
-            el.appendChild(canvas);
-          }
-        );
+        // qrcodejs exposes a constructor: new QRCode(container, options)
+        if (!el || typeof QRCode !== "function" || !QRCode.CorrectLevel) return;
+        el.innerHTML = "";
+        new QRCode(el, {
+          text: url,
+          width: 220,
+          height: 220,
+          colorDark: "#0B1B3A",
+          colorLight: "#FFFFFF",
+          correctLevel: QRCode.CorrectLevel.H,
+        });
       })();
     </script>
   </body>
